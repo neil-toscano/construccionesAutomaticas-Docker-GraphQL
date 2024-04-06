@@ -36,11 +36,15 @@ jobs:
         echo "fin del login"
         echo "new version $NEW_VERSION"
     - name: Build Docker Image
+      env:
+        NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
-        docker build -t neiltoscano/graphql:0.0.2 .
+        docker build -t neiltoscano/graphql:$NEW_VERSION .
     - name: Push docker Image
+      env:
+        NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
-        docker push neiltoscano/graphql:0.0.2
+        docker push neiltoscano/graphql:$NEW_VERSION
         
       
     # - name: Build the Docker images
