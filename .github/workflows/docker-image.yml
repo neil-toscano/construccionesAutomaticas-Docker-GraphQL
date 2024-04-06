@@ -43,5 +43,5 @@ jobs:
         docker push neiltoscano/graphql:0.0.2
         
       
-    # - name: Build the Docker image
+    # - name: Build the Docker images
     #   run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
